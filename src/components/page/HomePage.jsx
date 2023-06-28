@@ -12,7 +12,7 @@ const HomePage = () => {
   const [isTimesOpen, setIsTimesOpen] = useState(false); 
   const [highscores, setHighscores] = useState(JSON.parse(localStorage.getItem('highscores')) || []);
   const [isTimerRunning, setIsTimerRunning] = useState(false); // state for timer status
-
+  
   useEffect(() => {
     localStorage.setItem('highscores', JSON.stringify(highscores)); 
   }, [highscores]);
@@ -25,6 +25,11 @@ const HomePage = () => {
      
     }
     setIsTimesOpen(true);
+  };
+
+  const clearHighScores = () => {
+    localStorage.removeItem('highscores');
+    setHighscores([]);
   };
   
     const handleHighScoresClick = () => {
@@ -52,7 +57,9 @@ const HomePage = () => {
       <div className="nav-bar">
         {/* Pass the handleHighScoresClick to Navbar */}
         <Navbar handleHighScoresClick={handleHighScoresClick} 
-        setShowHighScores={setShowHighScores} />
+        setShowHighScores={setShowHighScores}
+        clearHighScores={clearHighScores} 
+        />
 
        
         <div className={`high-scores-container ${showHighScores ? 'show' : ''}`}>

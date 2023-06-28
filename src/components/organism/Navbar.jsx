@@ -3,7 +3,7 @@ import NavMenu from '../molecule/Navigation/NavMenu';
 import ToggleButton from '../atom/Navigation/ToggleButton';
 
 
-const Navbar = ({ handleHighScoresClick, setShowHighScores}) => {
+const Navbar = ({ handleHighScoresClick, setShowHighScores, clearHighScores}) => {
     const [isOpen, setIsOpen] = useState(false);
   
     const toggleNav = () => {
@@ -18,7 +18,8 @@ const Navbar = ({ handleHighScoresClick, setShowHighScores}) => {
         <ToggleButton isOpen={isOpen} toggleNav={toggleNav} />
   
         {/* Pass the isOpen state and handleHighScoresClick prop to NavMenu */}
-        <NavMenu isOpen={isOpen} onHighScoresClick={handleHighScoresClick} />
+        <NavMenu isOpen={isOpen} onHighScoresClick={handleHighScoresClick} 
+        clearHighScores={clearHighScores}/>
       </header>
     );
 };

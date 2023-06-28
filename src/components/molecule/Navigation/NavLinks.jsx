@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import Button from '../../atom/Button';
 
 
-
-
-
-
-
-const NavLinks = ({ onHighScoresClick }) => {
+const NavLinks = ({ onHighScoresClick , clearHighScores }) => {
   const handleHighScoresClick = () => {
     onHighScoresClick(); // Call the provided onHighScoresClick callback
   };
@@ -16,7 +11,7 @@ const NavLinks = ({ onHighScoresClick }) => {
     <div className="text-sm lg:flex-grow">
     <Button text="My Highscores" onClick={handleHighScoresClick} />
   
-    {/* <Button text="Maybe some neat function here" /> */}
+    <Button text="Reset Highscores" onClick={clearHighScores} />
     </div>
   );
 };
