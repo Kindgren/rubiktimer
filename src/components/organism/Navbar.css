@@ -1,0 +1,26 @@
+.navbar {
+    /* Other styles for the navbar */
+    position: relative;
+  }
+  
+  .nav-menu-container {
+    /* Other styles for the menu container */
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .nav-menu-container.open {
+    left: 0;
+    pointer-events: auto;
+  }
+  

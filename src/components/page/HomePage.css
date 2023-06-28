@@ -1,0 +1,143 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding-top: 20px;
+    height: 100vh;
+  }
+  
+  .nav-bar {
+    position: relative;
+    width: 100%;
+  }
+  
+  .timer-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .last-times-container {
+    position: fixed;
+    right: -50%;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    color: white;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .last-times-container.open {
+    right: 0;
+    pointer-events: auto;
+  }
+
+  .high-scores-container {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+    color: white;
+    overflow: hidden;
+    pointer-events: none; /* Disable interactions when the container is hidden */
+    z-index: 1;
+    opacity: 0; /* Hide the container */
+    transform: translateX(-100%); /* Push the element to the left by its own width */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Add transition for opacity */
+}
+
+.high-scores-container.show {
+    pointer-events: auto; /* Enable interactions when the container is visible */
+    opacity: 1; /* Show the container */
+    transform: translateX(0); /* Pull the element back to its original position */
+}
+
+  
+  .rubik-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add margin to create space between image and last-times-container */
+  }
+  
+  .rubik-image img {
+    width: 50%; /* Set the desired width */
+    height: auto; /* Maintain the aspect ratio */
+  }
+  
+  .rubiks-cube-container {
+    perspective: 800px;
+    margin: 100px auto;
+    padding-top: 130px;
+  }
+  
+  .rubiks-cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    animation: rotate 10s infinite linear;
+  }
+  
+  .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+  }
+  .front {
+    background-color: #ff0000; /* Red */
+    transform: translateZ(100px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .front > * {
+    border: 1px solid #000000; /* Black */
+  }
+  
+  .back {
+    background-color: #ff8000; /* Orange */
+    transform: rotateY(180deg) translateZ(100px);
+  }
+  
+  .top {
+    background-color: #ffff00; /* Yellow */
+    transform: rotateX(90deg) translateZ(100px);
+  }
+  
+  .bottom {
+    background-color: #ffffff; /* White */
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+  
+  .left {
+    background-color: #0000ff; /* Blue */
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+  
+  .right {
+    background-color: #00ff00; /* Green */
+    transform: rotateY(90deg) translateZ(100px);
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  

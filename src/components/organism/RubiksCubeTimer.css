@@ -1,0 +1,21 @@
+
+  .start-stop-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px; /* Adjust this value based on your needs */
+    text-align: center;
+    font-family:  monospace; /* Use a monospaced font */
+    padding: 5px;
+  }
+  
+  
