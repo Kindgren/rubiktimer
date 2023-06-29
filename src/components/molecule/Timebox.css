@@ -17,6 +17,11 @@
   
 }
 
+.time-container:hover {
+  background-color: #FFD600; /* Brighter yellow color on hover */
+  transform: scale(1.05);
+}
+
 .time-list {
   list-style-type: none; /* Remove default bullet points */
   padding: 0;

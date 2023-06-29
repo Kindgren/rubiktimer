@@ -26,10 +26,29 @@ const HomePage = () => {
   const [isTimesOpen, setIsTimesOpen] = useState(false); 
   const [highscores, setHighscores] = useState(JSON.parse(localStorage.getItem('highscores')) || []);
   const [isTimerRunning, setIsTimerRunning] = useState(false); // state for timer status
-  
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     localStorage.setItem('highscores', JSON.stringify(highscores)); 
   }, [highscores]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    // Attach the event listener to the window resize event
+  window.addEventListener('resize', handleResize);
+
+  // Call the handler once on initial render
+  handleResize();
+
+  // Clean up the event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+  
 
   const handleNewTime = (time) => {
     setTimes([...times, time]);
@@ -56,6 +75,22 @@ const HomePage = () => {
     setIsTimesOpen(false); 
   };
 
+  const RubiksCube = () => {
+    // Add your Rubik's Cube JSX code here
+    return (
+   
+      <div className="rubiks-cube">
+        <div className="face front"></div>
+        <div className="face back"></div>
+        <div className="face top"></div>
+        <div className="face bottom"></div>
+        <div className="face left"></div>
+        <div className="face right"></div>
+      </div>
+    );
+  };
+  
+
   const handleNewHighscore = (score) => {
     // First check if this score should be added
     if (highscores.length < 3 || score < highscores[highscores.length - 1]) {
@@ -80,14 +115,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="rubiks-cube-container">
-          <div className="rubiks-cube">
-            <div className="face front"></div>
-            <div className="face back"></div>
-            <div className="face top"></div>
-            <div className="face bottom"></div>
-            <div className="face left"></div>
-            <div className="face right"></div>
-          </div>
+        {!isMobile && <RubiksCube />}
         </div>
         <div className="content-container">
           <div className="timer-container">
