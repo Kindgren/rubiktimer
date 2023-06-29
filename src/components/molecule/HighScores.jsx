@@ -1,5 +1,5 @@
 import React from 'react';
-import './Timebox.css'
+import '../molecule/Timebox.css'
 
 const HighScores = ({ scores }) => {
 

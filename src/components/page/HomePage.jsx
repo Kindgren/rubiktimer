@@ -2,9 +2,23 @@ import React, { useState, useEffect } from 'react';
 import RubiksCubeTimer from '../organism/RubiksCubeTimer';
 import Navbar from '../organism/Navbar';
 import './HomePage.css';
-import AverageTime from '../organism/AverageTimes';
-import RubikImage from '../../utils/rubik.png';
-import HighScores from '../organism/HighScores';
+import AverageTime from '../molecule/AverageTimes';
+import HighScores from '../molecule/HighScores';
+
+/**
+ * The HomePage component represents the home page of the application.
+ * It displays the navigation bar, the Rubik's Cube, the timer functionality,
+ * and the display of last times and average time.
+ *
+ * It manages the state for times, showHighScores, isTimesOpen, highscores, and isTimerRunning.
+ * It provides event handlers for handling new time, resetting average time, updating high scores,
+ * and toggling the visibility of high scores.
+ *
+ * The component uses the RubiksCubeTimer component for timer functionality,
+ * the AverageTime component to display last times and average time,
+ * and the HighScores component to display the high scores.
+ */
+
 
 const HomePage = () => {
   const [times, setTimes] = useState([]);
@@ -53,46 +67,47 @@ const HomePage = () => {
   };
 
   return (
-    <div className="home-page">
-      <div className="nav-bar">
-        {/* Pass the handleHighScoresClick to Navbar */}
-        <Navbar handleHighScoresClick={handleHighScoresClick} 
-        setShowHighScores={setShowHighScores}
-        clearHighScores={clearHighScores} 
-        />
-
-       
-        <div className={`high-scores-container ${showHighScores ? 'show' : ''}`}>
-  <HighScores scores={highscores} />
-</div>
-      </div>
-      <div class="rubiks-cube-container">
-  <div class="rubiks-cube">
-    <div class="face front"></div>
-    <div class="face back"></div>
-    <div class="face top"></div>
-    <div class="face bottom"></div>
-    <div class="face left"></div>
-    <div class="face right"></div>
-  </div>
-</div>
-      <div className="content-container">
-        <div className="timer-container">
-          <RubiksCubeTimer
-            onNewTime={handleNewTime}
-            onResetAverageTime={handleResetAverageTime}
-            setIsTimerRunning={setIsTimerRunning} // pass the function to set timer status
+      <div className="home-page">
+        <div className="nav-bar">
+          {/* Pass the handleHighScoresClick to Navbar */}
+          <Navbar
+            handleHighScoresClick={handleHighScoresClick}
+            setShowHighScores={setShowHighScores}
+            clearHighScores={clearHighScores}
           />
+          <div className={`high-scores-container ${showHighScores ? 'show' : ''}`}>
+            <HighScores scores={highscores} />
+          </div>
         </div>
-        <div className={`last-times-container ${isTimesOpen ? 'open' : ''}`}>
-          <AverageTime times={times} onNewAverage={handleNewHighscore} isTimerRunning={isTimerRunning} /> {/* pass down isTimerRunning */}
-          
+        <div className="rubiks-cube-container">
+          <div className="rubiks-cube">
+            <div className="face front"></div>
+            <div className="face back"></div>
+            <div className="face top"></div>
+            <div className="face bottom"></div>
+            <div className="face left"></div>
+            <div className="face right"></div>
+          </div>
         </div>
-       
+        <div className="content-container">
+          <div className="timer-container">
+            <RubiksCubeTimer
+              onNewTime={handleNewTime}
+              onResetAverageTime={handleResetAverageTime}
+              setIsTimerRunning={setIsTimerRunning}
+            />
+          </div>
+          <div className={`last-times-container ${isTimesOpen ? 'open' : ''}`}>
+            <AverageTime
+              times={times}
+              onNewAverage={handleNewHighscore}
+              isTimerRunning={isTimerRunning}
+            />
+          </div>
+        </div>
       </div>
-      
-    </div>
-  );
-};
+    );
+  };
+  
+  export default HomePage;
 
-export default HomePage;
