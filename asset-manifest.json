@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/rubiktimer/static/css/main.0b7030ce.css",
+    "main.css": "/rubiktimer/static/css/main.fa275276.css",
     "main.js": "/rubiktimer/static/js/main.95fe1e2e.js",
     "static/media/rubik.png": "/rubiktimer/static/media/rubik.d139dd8e5d4942406837.png",
     "index.html": "/rubiktimer/index.html",
-    "main.0b7030ce.css.map": "/rubiktimer/static/css/main.0b7030ce.css.map",
+    "main.fa275276.css.map": "/rubiktimer/static/css/main.fa275276.css.map",
     "main.95fe1e2e.js.map": "/rubiktimer/static/js/main.95fe1e2e.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b7030ce.css",
+    "static/css/main.fa275276.css",
     "static/js/main.95fe1e2e.js"
   ]
 }
