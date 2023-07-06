@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../atom/Button';
+import Button from '../../atom/Button/Button';
 
 
 const NavLinks = ({ onHighScoresClick , clearHighScores }) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavMenu from '../molecule/NavMenu';
-import ToggleButton from '../atom/ToggleButton';
+import NavMenu from '../../molecule/NavMenu/NavMenu';
+import ToggleButton from '../../atom/ToggleButton/ToggleButton';
 
 // The Navbar component represents the header navigation bar.
 // It displays a toggle button and a menu for navigating the application.
@@ -8,7 +8,9 @@ import ToggleButton from '../atom/ToggleButton';
 // - handleHighScoresClick: Function to handle the high scores click event
 // - setShowHighScores: Function to control the display of high scores
 // - clearHighScores: Function to clear the high scores data
+
 const Navbar = ({ handleHighScoresClick, setShowHighScores, clearHighScores }) => {
+  
   // State variable for managing the open/close state of the navbar
   const [isOpen, setIsOpen] = useState(false);
 

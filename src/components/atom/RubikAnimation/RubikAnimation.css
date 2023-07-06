@@ -1,0 +1,67 @@
+.rubiks-cube-container {
+    perspective: 800px;
+    margin: 100px auto;
+
+  }
+  
+  .rubiks-cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    animation: rotate 10s infinite linear;
+  }
+  
+  .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+  }
+  .front {
+    background-color: #ff0000; /* Red */
+    transform: translateZ(100px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .front > * {
+    border: 1px solid #000000; /* Black */
+  }
+  
+  .back {
+    background-color: #ff8000; /* Orange */
+    transform: rotateY(180deg) translateZ(100px);
+  }
+  
+  .top {
+    background-color: #ffff00; /* Yellow */
+    transform: rotateX(90deg) translateZ(100px);
+  }
+  
+  .bottom {
+    background-color: #ffffff; /* White */
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+  
+  .left {
+    background-color: #0000ff; /* Blue */
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+  
+  .right {
+    background-color: #00ff00; /* Green */
+    transform: rotateY(90deg) translateZ(100px);
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Timebox.css';
-import '../atom/Button.css';
+import '../atom/Button/Button';
 
 const AverageTime = ({ times, onNewAverage, isTimerRunning }) => { 
   const lastThreeTimes = times.slice(Math.max(times.length - 3, 0));
@@ -29,7 +29,7 @@ const AverageTime = ({ times, onNewAverage, isTimerRunning }) => {
     <div className="time-container">
       <ul className="time-list">
         {lastThreeTimes.map((time, index) => (
-          <li key={index} className="time-item">
+          <li key={index} className="time">
             Time {index + 1}: {formatTime(time)}
           </li>
         ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // import Route and Routes
-import HomePage from './components/page/HomePage';
+import HomePage from './components/page/HomePage/HomePage';
 import './App.css';
 import RubikImage from './utils/rubik.png';
 
